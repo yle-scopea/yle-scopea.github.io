@@ -39,7 +39,7 @@
                 var moduleName = $("#moduleName").val();
                 var modelName = $("#modelName").val();
                 var modelNameUnderscore = modelName.replaceAll('.', '_')
-                var result = moduleName + '.access_' + modelName + ',access_' + modelName+','+moduleName+'.model_'+modelNameUnderscore+',base.group_user,1,1,1,1';
+                var result = moduleName + '.access_' + modelNameUnderscore + ',access_' + modelName+','+moduleName+'.model_'+modelNameUnderscore+',base.group_user,1,1,1,1';
 
                 $("#result").text(result);
             });
