@@ -24,7 +24,6 @@
                 <label for="modelName">Nom du Modèle:</label>
                 <input type="text" class="form-control" id="modelName" required>
             </div>
-            <button type="submit" class="btn btn-primary">Confirmer</button>
         </form>
 
         <div id="result" class="mt-3">
@@ -32,16 +31,15 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("#moduleForm").submit(function(event) {
-                event.preventDefault(); // Empêche la soumission par défaut du formulaire
-
+            $("#moduleName, #modelName").on("input", function() {
                 var moduleName = $("#moduleName").val();
                 var modelName = $("#modelName").val();
-                var result = moduleName + modelName;
+                var modelNameUnderscore = modelName.replaceAll('.', '_')
+                var result = moduleName + '.access_' + modelName + ',access_' + modelName+','+moduleName+'.model_'+modelNameUnderscore+',base.group_user,1,1,1,1';
 
                 $("#result").text("Résultat: " + result);
             });
